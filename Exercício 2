@@ -1,0 +1,16 @@
+from sklearn.linear_model import Perceptron
+
+#dados de entrada
+x = [[0,0,0],[0,1,0],[1,0,0],[1,1,0],[0,0,1],[0,1,1],[1,0,1],[1,1,1]]
+#saídas
+y = [0,1,1,1,0,0,0,0]
+
+modelo = Perceptron()
+modelo.fit(x,y)
+
+#testando modelo
+print("Predicts: ")
+testes = [[0,0,0],[0,1,0],[1,0,0],[1,1,0],[0,0,1],[0,1,1],[1,0,1],[1,1,1]]
+for teste in testes:
+  previsao = modelo.predict([teste])
+  print(f"Ensolarado: {teste[1]}, Final de semana: {teste[0]}, Parque lotado: {teste[0]} => Ir ao Parque? {'Sim' if previsao[0] == 1 else 'não'}")
